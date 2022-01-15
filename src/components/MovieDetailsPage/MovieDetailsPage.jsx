@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { useParams, useRouteMatch, Route, NavLink, Switch } from "react-router-dom";
-import Cast from "../Cast";
-import Reviews from "../Reviews";
 import * as filmsApi from '../../services/FilmsApi'
+const Cast = lazy(() => import('../Cast' /* webpackChunkName: 'cast' */))
+const Reviews = lazy(() => import('../Reviews' /* webpackChunkName: 'reviews' */))
+
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null)
@@ -32,13 +33,14 @@ export default function MovieDetailsPage() {
         </li>
           
       </ul>
+      <Suspense fallback={<h1>Loading</h1>}>
        <Route exact path={`${path}/cast`}>
           <Cast/>
       </Route>
        <Route exact path={`${path}/reviews`}>
           <Reviews/>
       </Route>
-      
+      </Suspense>
     </>
     )
  }

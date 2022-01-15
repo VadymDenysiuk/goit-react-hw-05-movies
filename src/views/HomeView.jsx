@@ -10,7 +10,7 @@ export default function HomeView() {
   
   return (
     <>
-      <h1>Trands</h1> <ul>
+      <h1>Trends</h1> <ul>
         {films && films.map(movies => <li key={movies.id}>
           <Link to={`/movies/${movies.id}`}>{movies.title || movies.name} </Link>
         </li>)}

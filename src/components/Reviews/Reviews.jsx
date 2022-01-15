@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useRouteMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import * as filmsApi from '../../services/FilmsApi'
 
 export default function Cast() {
