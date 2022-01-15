@@ -16,7 +16,10 @@ export default function Cast() {
           <h4>{review.author}</h4>
           <p>{review.content}</p>
         </li>)}
-    </ul>
+
+      </ul>
+
+      {reviews && reviews.length < 1 &&  <p>No any reviews about this movie</p>}
     </>
   )
  }
